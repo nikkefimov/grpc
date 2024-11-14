@@ -13,9 +13,9 @@ type go_serviceServer struct {
 	go_service.UnimplementedGoServiceServer
 }
 
-func (s go_serviceServer) Create(context.Context, *go_service.CreateRequest) (*go_service.CreateResponse, error) {
+func (s go_serviceServer) Create(ctx context.Context, req *go_service.CreateRequest) (*go_service.CreateResponse, error) {
 	return &go_service.CreateResponse{
-		Pdf:  []byte("test"),
+		Pdf:  []byte(req.From),
 		Docx: []byte("test"),
 	}, nil
 }
